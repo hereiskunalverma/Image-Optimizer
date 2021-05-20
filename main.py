@@ -18,6 +18,9 @@ def main(image):
 		st.header(header)
 		st.image(res,caption=str(os.path.getsize(res)/1000)+" KB",use_column_with=True)
 	if st.button("Save"):
+
+		st.write("😇 Right-clickon image to save!")
+
 		# shutil.move(res, os.path.join(os.environ["HOMEPATH"], "Desktop"))
 		shutil.move(res,os.getcwd()+res)
 		st.write(os.getcwd()+res)
