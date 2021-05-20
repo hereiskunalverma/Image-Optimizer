@@ -20,7 +20,8 @@ def main(image):
 		# shutil.move(res, os.path.join(os.environ["HOMEPATH"], "Desktop"))
 		shutil.move(res,os.getcwd()+res)
 		st.write(os.getcwd()+res)
-		href=f'<a href="data:app/image-optimizer\{res}">Download file</a>'
+		img_str = base64.b64encode(buffered.getvalue()).decode()
+		href=f'<a href="data:file/jpg;base64,{img_str}">Download file</a>'
 		st.markdown(href,unsafe_allow_html=True)
 	else:
 		st.write("Not Saved!!!")
