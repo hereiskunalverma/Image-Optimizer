@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image
+import base64
 import shutil
 import os
 def main(image):
