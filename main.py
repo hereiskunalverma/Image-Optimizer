@@ -20,7 +20,7 @@ def main(image):
 		# shutil.move(res, os.path.join(os.environ["HOMEPATH"], "Desktop"))
 		shutil.move(res,os.getcwd()+"\\Desktop\\"+res)
 		st.write(os.getcwd()+"\\Desktop\\"+res)
-		href=f'<a href="data:file/{res}" download=result.png>Download file</a>'
+		href=f'<a href="data:file/{res}">Download file</a>'
 		st.markdown(href,unsafe_allow_html=True)
 	else:
 		st.write("Not Saved!!!")
