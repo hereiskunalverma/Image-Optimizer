@@ -19,7 +19,7 @@ def main(image):
 	if st.button("Save"):
 		# shutil.move(res, os.path.join(os.environ["HOMEPATH"], "Desktop"))
 		shutil.move(res,os.getcwd()+"\\Desktop\\"+res)
-		st.write("File Saved on Desktop")
+		st.write(os.getcwd()+"\\Desktop\\"+res)
 	else:
 		st.write("Not Saved!!!")
 def pick():
