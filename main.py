@@ -18,9 +18,9 @@ def main(image):
 		st.image(res,caption=str(os.path.getsize(res)/1000)+" KB",use_column_with=True)
 	if st.button("Save"):
 		# shutil.move(res, os.path.join(os.environ["HOMEPATH"], "Desktop"))
-		shutil.move(res,os.getcwd()+"\\Desktop\\"+res)
-		st.write(os.getcwd()+"\\Desktop\\"+res)
-		href=f'<a href="data:file/{res}">Download file</a>'
+		shutil.move(res,os.getcwd()+res)
+		st.write(os.getcwd()+res)
+		href=f'<a href="/app/image-optimizer\{res}">Download file</a>'
 		st.markdown(href,unsafe_allow_html=True)
 	else:
 		st.write("Not Saved!!!")
