@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image
+import base64
 import shutil
 import os
 def main(image):
@@ -17,7 +18,15 @@ def main(image):
 		st.header(header)
 		st.image(res,caption=str(os.path.getsize(res)/1000)+" KB",use_column_with=True)
 	if st.button("Save"):
+
 		st.write("😇 Right-clickon image to save!")
+
+		# shutil.move(res, os.path.join(os.environ["HOMEPATH"], "Desktop"))
+		shutil.move(res,os.getcwd()+res)
+		st.write(os.getcwd()+res)
+		img_str = base64.b64encode(buffered.getvalue()).decode()
+		href=f'<a href="data:file/jpg;base64,{img_str}">Download file</a>'
+		st.markdown(href,unsafe_allow_html=True)
 	else:
 		st.write("Not Saved!!!")
 def pick():
