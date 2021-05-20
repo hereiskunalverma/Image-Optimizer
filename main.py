@@ -1,5 +1,8 @@
 import streamlit as st
 from PIL import Image
+import time
+import base64
+timestr = time.strftime("%Y%m%d-%H%M%S")
 import shutil
 import os
 def main(image):
@@ -17,7 +20,15 @@ def main(image):
 		st.header(header)
 		st.image(res,caption=str(os.path.getsize(res)/1000)+" KB",use_column_with=True)
 	if st.button("Save"):
-		st.write("😇 Right-clickon image to save!")
+		bs64 = 0
+		with open(res,"rb") as img_file:
+			bs64 = base64.b64encode(img_file.read()).decode();
+		res_file = f"result_{timestr}"
+		st.markdown("Downlaod file")
+		href = f'<a href="data:file/jpeg;base64,{bs64}" download="{res_file}.jpg">Click Here!!</a>'
+		st.markdown(href,unsafe_allow_html=True)
+		# shutil.move(res,os.getcwd()+"\\Desktop\\"+res)
+		# st.write("File Saved on Desktop")
 	else:
 		st.write("Not Saved!!!")
 def pick():
@@ -55,7 +66,7 @@ if __name__ == '__main__':
 	}
 	</style>
 	<div class="footer">
-	<p>Developed with ❤ by <a style='display: block; text-align: center;' href="https://hereiskunalverma.github.io/tlrc/index.html" target="_blank">Kunal Verma 😇</a></p>
+	<p>Developed with ❤ by <a style='display: block; text-align: center;' href="https://hereiskunalverma.github.io/tlrc/index.html" target="_blank">Kunal Verma</a></p>
 	</div>
 """
 		,unsafe_allow_html=True)
