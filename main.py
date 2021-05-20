@@ -17,7 +17,7 @@ def main(image):
 		st.header(header)
 		st.image(res,caption=str(os.path.getsize(res)/1000)+" KB",use_column_with=True)
 	if st.button("Save"):
-		shutil.move(res,f"C:\\Users\\{os.getlogin()}\\desktop\\"+res)
+		shutil.move(res, os.path.join(os.environ["HOMEPATH"], "Desktop"))
 		st.write("File Saved on Desktop")
 	else:
 		st.write("Not Saved!!!")
