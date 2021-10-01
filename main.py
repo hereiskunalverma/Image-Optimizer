@@ -18,14 +18,14 @@ def main(image):
     col1, col2 = st.beta_columns(2)
     with col1:
         st.header("Original Image")
-        st.image(image, caption=str("Size : "+sys.getsizeof(img.tobytes())/1000) +
+        st.image(image, caption="Size : "+str(sys.getsizeof(img.tobytes())/1000) +
                  " KB", use_column_with=True)
     res = "result.jpeg"
     img.save(res, optimize=True, quality=value)
     with col2:
         header = "Result"
         st.header(header)
-        st.image(res, caption=str("Size : "+os.path.getsize(res)/1000) +
+        st.image(res, caption="Size : "+str(os.path.getsize(res)/1000) +
                  " KB", use_column_with=True)
     if st.button("Save"):
         bs64 = 0
