@@ -15,7 +15,7 @@ def main(image):
     value = st.slider("Select the optimize values : ",
                       min_value=0, max_value=15, value=15)
     st.write("You have selected :", value)
-    col1, col2 = st.beta_columns(2)
+    col1, col2 = st.columns(2)
     with col1:
         st.header("Original Image")
         st.image(image, caption="Size : "+str(sys.getsizeof(img.tobytes())/1000) +
